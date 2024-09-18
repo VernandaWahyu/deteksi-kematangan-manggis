@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Deteksi Buah Manggis</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="assets/style.css" rel="stylesheet">
+    <style>
+        /* Custom Styles for Enhanced Design */
+        body {
+            background-color: #f7f8fc;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .container {
+            max-width: 900px;
+            margin-top: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        .custom-file {
+            margin-bottom: 15px;
+        }
+
+        .custom-file-label {
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .custom-file-input {
+            cursor: pointer;
+        }
+
+        .custom-file-label:hover {
+            background-color: #f0f0f0;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-warning {
+            background-color: #f0ad4e;
+            border-color: #f0ad4e;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .img-same-size {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .img-same-size:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-group {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .result-container {
+            margin-top: 30px;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-container table {
+            margin-top: 15px;
+            background-color: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-container table th,
+        .result-container table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .result-container h3 {
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive Design Adjustments */
+        @media (max-width: 768px) {
+            .btn-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-group .btn {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="my-4 text-center">Tata Cara Penggunaan Aplikasi</h1>
+        
+        <div class="result-container">
+            <h3 class="text-center"></h3>
+            <p><strong>Tata Cara Penggunaan Aplikasi:</strong></p>
+            <ol>
+                <li><strong>Upload Citra:</strong> Pilih citra yang ingin Anda analisis dengan menekan tombol "Pilih Citra" dan kemudian klik "Buka Citra".</li>
+                <li><strong>Prabaca Citra:</strong> Setelah meng-upload citra, aplikasi akan menampilkan dua gambar: citra asli dan citra dalam format HSV.</li>
+                <li><strong>Ekstraksi:</strong> Untuk mengekstrak data dari citra, klik tombol "Ekstraksi".</li>
+                <li><strong>Deteksi:</strong> Untuk mendeteksi objek atau fitur pada citra, klik tombol "Deteksi".</li>
+                <li><strong>Kembali:</strong> Jika Anda ingin kembali ke halaman utama, klik tombol "Kembali".</li>
+            </ol>
+            <p>Untuk bantuan lebih lanjut, silakan hubungi dukungan teknis kami atau periksa dokumentasi aplikasi.</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Show the name of the selected file in the label
+        $('.custom-file-input').on('change', function (event) {
+            var inputFile = event.currentTarget;
+            $(inputFile).parent()
+                .find('.custom-file-label')
+                .html(inputFile.files[0].name);
+        });
+    </script>
+</body>
+
+</html>

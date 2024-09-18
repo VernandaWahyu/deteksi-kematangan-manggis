@@ -1,0 +1,31 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.image-container, .result-container {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 0px solid black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+}

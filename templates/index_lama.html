@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Deteksi Buah Manggis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5">Deteksi Buah Manggis</h1>
+      <form method="post" action="/upload" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="file">Pilih Gambar</label>
+          <input type="file" class="form-control" id="file" name="file">
+        </div>
+        <button type="submit" class="btn btn-primary">Buka Citra</button>
+      </form>
+      {% if filename %}
+        <h2 class="mt-5">Nama Citra: {{ filename }}</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="{{ url_for('display_image', filename=filename) }}" alt="Original Image" class="img-thumbnail">
+          </div>
+          {% if hsv_filename %}
+          <div class="col-md-6">
+            <img src="{{ url_for('display_image', filename=hsv_filename) }}" alt="HSV Image" class="img-thumbnail">
+          </div>
+          {% endif %}
+        </div>
+        <form method="post" action="/extract" class="mt-3">
+          <input type="hidden" name="filename" value="{{ filename }}">
+          <button type="submit" class="btn btn-warning">Ekstraksi</button>
+        </form>
+        {% if values %}
+          <h3 class="mt-3">Ekstraksi HSV</h3>
+          <div>
+            {{ values | safe }}
+          </div>
+        {% endif %}
+        <form method="post" action="/detect" class="mt-3">
+          <input type="hidden" name="filename" value="{{ filename }}">
+          <button type="submit" class="btn btn-success">Deteksi</button>
+        </form>
+        {% if result_text %}
+          <h3 class="mt-3">Hasil Deteksi</h3>
+          <p>{{ result_text }}</p>
+        {% endif %}
+      {% endif %}
+    </div>
+  </body>
+</html>

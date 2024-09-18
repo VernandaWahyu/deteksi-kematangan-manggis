@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gambar Buah Manggis</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"> <!-- Font Awesome for Icons -->
+    <style>
+        /* Custom Styles for Enhanced Design */
+        body {
+            background-color: #f7f8fc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container-custom {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .left-section {
+            border-right: 1px solid #eee;
+        }
+
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right-section a {
+            margin-bottom: 15px;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .right-section a:hover {
+            background-color: #5a6268;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            padding: 5px;
+            border-radius: 4px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline-dark {
+            border-color: #343a40;
+            color: #343a40;
+        }
+
+        .btn-outline-dark:hover {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .left-section {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+
+            .right-section {
+                flex-direction: row;
+                justify-content: space-evenly;
+            }
+
+            .right-section a {
+                margin-bottom: 0;
+                margin-right: 5px;
+                margin-left: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="container-custom row">
+            <div class="col-md-8 left-section">
+                <h3 class="text-center mb-4">Deteksi Kematangan Buah Manggis</h3>
+                <!-- Image added here -->
+                <div class="image-container">
+                    <!-- Use url_for to reference the image -->
+                    <img src="{{ url_for('static', filename='assets/images/Manggis.png') }}" alt="Buah Manggis" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-4 right-section">
+                <a href="{{ url_for('deteksi') }}" class="btn btn-outline-dark btn-block">
+                    <i class="fas fa-search"></i> Deteksi
+                </a>
+                <a href="{{ url_for('bantuan') }}" class="btn btn-outline-dark btn-block">
+                    <i class="fas fa-question-circle"></i> Bantuan
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
